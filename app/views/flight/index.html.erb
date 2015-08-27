@@ -1,0 +1,30 @@
+<%= form_tag(flight_index_path, method: "get") do %>
+  <%= label_tag(:from_airport_id, "Departure Airport:") %>
+  <%= select_tag(:from_airport_id, options_for_select(@airports, @from_airport)) %>
+
+  <%= label_tag(:to_airport_id, "Destination Airport:") %>
+  <%= select_tag(:to_airport_id, options_for_select(@airports, @to_airport)) %>
+
+  <%= label_tag(:flight_date, "Date of Departure") %>
+  <%= select_tag(:flight_date, options_for_select(Flight.all.map { |f| f.flight_date_formatted})) %> 
+  
+  <%= select_tag(:passengers, options_for_select(1..4))  %>
+  
+  <%= submit_tag("Search Flights", :name => nil) %>
+  
+  
+<% end %>
+<% unless @flights.nil? %>
+<h2>Flights</h2>
+<%= form_tag new_booking_path, method: 
+"get" do   %>
+    <ul> 
+      <% @flights.each do |f| %>
+        <li><%= radio_button_tag( :flight_id, f.id ) %>
+        <%= label :flight, "#{f.departure_time.strftime("%I:%M:%S %p")}" %></li>
+      <% end %>
+      <%= hidden_field_tag(:passengers, params[:passengers]) %>
+    <%= submit_tag( "Book this flight") %>
+  <% end %>
+</ul>
+<% end %>

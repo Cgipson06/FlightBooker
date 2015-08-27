@@ -1,0 +1,13 @@
+<% unless @flights.nil? %>
+<h2>Flights</h2>
+<%= form_for(@booking) do  %>
+    <ul> 
+      <% @flights.each do |f| %>
+        <li><%= radio_button_tag( :flight_id, f.id ) %>
+        <%= label :flight, "#{f.departure_time.strftime("%I:%M:%S %p")}" %></li>
+      <% end %>
+      <%= hidden_field_tag(:passengers, params[:passengers]) %>
+    <%= submit_tag( "Book this flight") %>
+  <% end %>
+</ul>
+<% end %>
