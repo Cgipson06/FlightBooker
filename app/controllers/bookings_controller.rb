@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
 
 def new
-  @flight = Flight.find_by(:id => params[:flight_id])
+  @flight = Flight.find(params[:flight_id])
   @booking = Booking.new
   @passengers = params[:passengers]
   @passengers.to_i.times { @booking.passengers.build }
@@ -12,10 +12,19 @@ def create
   
   if @booking.save
     @booking.update_attribute(:flight_id, params[:flight_id])
-    
-  redirect_to root_url
-   end
+    flash[:success] = "Your flight has been booked!"
+    redirect_to booking_path(@booking)
+  else
+    @flight = Flight.find(params[:flight_id])
+    render 'new'
+  end
 end
+   
+   def show
+     @booking = Booking.find(params[:id])
+   end
+   
+
 
 
 private

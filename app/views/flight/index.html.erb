@@ -1,3 +1,5 @@
+
+
 <%= form_tag(flight_index_path, method: "get") do %>
   <%= label_tag(:from_airport_id, "Departure Airport:") %>
   <%= select_tag(:from_airport_id, options_for_select(@airports, @from_airport)) %>
@@ -14,7 +16,7 @@
   
   
 <% end %>
-<% unless @flights.nil? %>
+<% unless params[:passengers].nil? %>
 <h2>Flights</h2>
 <%= form_tag new_booking_path, method: 
 "get" do   %>
