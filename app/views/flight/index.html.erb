@@ -1,5 +1,10 @@
-
-
+<% if params[:passengers].nil? %>
+  <div class="jumbotron">
+  <h1>Welcome to FlightBooker</h1>
+  <p>Search for flights to get started!</p>
+  <p><a class="btn btn-primary btn-lg" href="https://github.com/Cgipson06/FlightBooker" role="button">See the Code</a></p>
+</div>
+<% end %>
 <%= form_tag(flight_index_path, method: "get") do %>
   <%= label_tag(:from_airport_id, "Departure Airport:") %>
   <%= select_tag(:from_airport_id, options_for_select(@airports, @from_airport)) %>
@@ -8,7 +13,7 @@
   <%= select_tag(:to_airport_id, options_for_select(@airports, @to_airport)) %>
 
   <%= label_tag(:flight_date, "Date of Departure") %>
-  <%= select_tag(:flight_date, options_for_select(Flight.all.map { |f| f.flight_date_formatted})) %> 
+  <%= select_tag(:flight_date, options_for_select(Flight.all.map { |f| f.flight_date_formatted}.uniq)) %> 
   
   <%= select_tag(:passengers, options_for_select(1..4))  %>
   
@@ -16,6 +21,7 @@
   
   
 <% end %>
+
 <% unless params[:passengers].nil? %>
 <h2>Flights</h2>
 <%= form_tag new_booking_path, method: 

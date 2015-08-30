@@ -1,3 +1,4 @@
+
 <div class="panel panel-default">
   <div class="panel-heading">
     <h3 class="panel-title">Flight Information</h3>
@@ -9,16 +10,19 @@
     <p><%= "Arriving at #{@flight.from_airport.airport_code}" %></p>
     <p><%= "Estimated flight time of #{@flight.duration} minutes" %></p>
   </div>
-</div>
-
-<%= form_for @booking do |flight|%>
-  <%= flight.fields_for :passengers do |passenger| %>
+</div> 
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3 class="panel-title">Passenger Information</h3>
+  </div>
+   <%= form_for @booking do |flight|%>
+   <%= flight.fields_for :passengers do |passenger| %>
 
     <%= passenger.label :name, "Name:" %>
     <%= passenger.text_field :name %>
     <%= passenger.label :email, "Email:" %>
     <%= passenger.text_field :email %>
-    
+    <br>
     <% end %>
     <%= hidden_field_tag(:passengers, params[:passengers]) %>
         <%= flight.hidden_field :flight_id, value: params[:flight_id] %>

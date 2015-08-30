@@ -12,6 +12,7 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
+  background-color: #DADFE4;
 }
 
 section {
@@ -39,11 +40,12 @@ textarea {
   padding-top: 12px;
   font-weight: bold;
   &:hover {
-    color: white;
+    color: grey;
     text-decoration: none;
   }
 }
 
+  
 /* footer */
 
 footer {

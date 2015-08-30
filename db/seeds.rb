@@ -8,15 +8,21 @@
 
 a = Airport.create(airport_code: "NYC")
 b = Airport.create(airport_code: "SFO")
+c = Airport.create(airport_code: "ABIA")
+
 a1 = Airport.first
-a2 = Airport.last
+a2 = Airport.find(2)
+a3 = Airport.last
 
 
-
-20.times do |p|
+5.times do |p|
   date = (1..500).to_a.sample.days.from_now
   Flight.create(from_airport: a1, to_airport: a2, departure_time: date, duration: 90)
   
   Flight.create(from_airport: a2, to_airport: a1, departure_time: date, duration: 90)
+  Flight.create(from_airport: a1, to_airport: a3, departure_time: date, duration: 90)
+  Flight.create(from_airport: a3, to_airport: a1, departure_time: date, duration: 90)
+  Flight.create(from_airport: a2, to_airport: a3, departure_time: date, duration: 90)
+  Flight.create(from_airport: a3, to_airport: a2, departure_time: date, duration: 90)
 
 end
