@@ -16,6 +16,9 @@ def create
     redirect_to booking_path(@booking)
   else
     @flight = Flight.find(params[:flight_id])
+    @booking.errors.each do |type, message| 
+      flash.now[:alert] = " #{type} #{message}"
+    end
     render 'new'
   end
 end

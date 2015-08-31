@@ -4,20 +4,22 @@
   </div>
   <div class="panel-body">
 
-<p>Flight Details : </p>
+    <p>Flight Details : </p>
 
-<p><%= "Flight # #{@booking.flight_id} " %></p>
-<p><%= "Departing from #{@booking.flight.to_airport.airport_code}" %></p>
-<p>on <%= "#{@booking.flight.departure_time.strftime("%B #{@booking.flight.departure_time.day.ordinalize}, %Y")}" %> </p>
-<p><%= "Arriving at #{@booking.flight.from_airport.airport_code}" %></p>
-<p><%= "Estimated flight time of #{@booking.flight.duration} minutes" %></p>
+    <p><%= "Flight # #{@booking.flight_id} " %></p>
+    <p><%= "Departing from #{@booking.flight.to_airport.airport_code}" %></p>
+    <p>on <%= "#{@booking.flight.departure_time.strftime("%B #{@booking.flight.departure_time.day.ordinalize}, %Y")}" %> </p>
+    <p><%= "Arriving at #{@booking.flight.from_airport.airport_code}" %></p>
+    <p><%= "Estimated flight time of #{@booking.flight.duration} minutes" %></p>
 
 
-<% @booking.passengers.each do |p| %>
+    <% @booking.passengers.each do |p| %>
 
-<p>Passengers in your Party </p>
-<ul>
-<li><%= "     #{p.name}" %></li>
-<li><%= "     #{p.email}" %></li>
-<% end %>
-</ul>
+    <p>Passengers in your Party </p>
+    <ul>
+    <li><%= "     #{p.name}" %></li>
+    <li><%= "     #{p.email}" %></li>
+    <% end %>
+    </ul>
+  </div>
+</div>

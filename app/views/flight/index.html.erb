@@ -1,10 +1,11 @@
 <% if params[:passengers].nil? %>
   <div class="jumbotron">
-  <h1>Welcome to FlightBooker</h1>
-  <p>Search for flights to get started!</p>
-  <p><a class="btn btn-primary btn-lg" href="https://github.com/Cgipson06/FlightBooker" role="button">See the Code</a></p>
-</div>
+    <h1>Welcome to FlightBooker</h1>
+    <p>Search for flights below to get started!</p>
+
+  </div>
 <% end %>
+
 <%= form_tag(flight_index_path, method: "get") do %>
   <%= label_tag(:from_airport_id, "Departure Airport:") %>
   <%= select_tag(:from_airport_id, options_for_select(@airports, @from_airport)) %>
@@ -24,15 +25,19 @@
 
 <% unless params[:passengers].nil? %>
 <h2>Flights</h2>
-<%= form_tag new_booking_path, method: 
-"get" do   %>
+<%= form_tag new_booking_path, method: "get" do   %>
     <ul> 
+      <% if @flights.empty? %>
+        <p>No flights match your request.</p>
+      <% else %>
+      
       <% @flights.each do |f| %>
         <li><%= radio_button_tag( :flight_id, f.id ) %>
         <%= label :flight, "#{f.departure_time.strftime("%I:%M:%S %p")}" %></li>
-      <% end %>
+        <% end %>
       <%= hidden_field_tag(:passengers, params[:passengers]) %>
-    <%= submit_tag( "Book this flight") %>
-  <% end %>
-</ul>
-<% end %>
+      <%= submit_tag( "Book this flight") %>
+    </ul>
+    <% end %>
+    <% end %>
+ <% end %>

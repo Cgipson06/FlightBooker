@@ -52,7 +52,8 @@ footer {
   margin-top: 45px;
   padding-top: 5px;
   border-top: 1px solid $gray-medium-light;
-  color: $gray-light;
+  position: absolute;
+  bottom: 5px;
   a {
     color: $gray;
     &:hover {
@@ -70,4 +71,10 @@ footer {
       margin-left: 15px;
     }
   }
+}
+.alert-alert
+{
+background-color: #f0d8df;
+border-color: #000000;
+color: #4C0000;
 }
