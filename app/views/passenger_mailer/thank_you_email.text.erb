@@ -1,0 +1,12 @@
+Thanks for booking your flight with FlightBooker, <%= @user.name %>
+==========================================================================
+
+Your booking has been submitted, here are your flight details
+
+<p>Flight Details : </p>
+
+    <%= "Flight # #{@booking.flight_id} " %>
+    <%= "Departing from #{@booking.flight.to_airport.airport_code}" %>
+    <%= "on #{@booking.flight.departure_time.strftime("%B #{@booking.flight.departure_time.day.ordinalize}, %Y")}" %>
+    <%= "Arriving at #{@booking.flight.from_airport.airport_code}" %>
+    <%= "Estimated flight time of #{@booking.flight.duration} minutes" %>

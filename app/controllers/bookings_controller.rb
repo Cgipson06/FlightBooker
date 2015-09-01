@@ -13,6 +13,10 @@ def create
   if @booking.save
     @booking.update_attribute(:flight_id, params[:flight_id])
     flash[:success] = "Your flight has been booked!"
+    @booking.passengers.each do |p|
+    
+      PassengerMailer.thank_you_email(p).deliver_later
+    end
     redirect_to booking_path(@booking)
   else
     @flight = Flight.find(params[:flight_id])

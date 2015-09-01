@@ -12,14 +12,13 @@
     <p><%= "Arriving at #{@booking.flight.from_airport.airport_code}" %></p>
     <p><%= "Estimated flight time of #{@booking.flight.duration} minutes" %></p>
 
-
-    <% @booking.passengers.each do |p| %>
-
     <p>Passengers in your Party </p>
+    <% @booking.passengers.each do |p| %>
     <ul>
-    <li><%= "     #{p.name}" %></li>
-    <li><%= "     #{p.email}" %></li>
-    <% end %>
+      <li><%= "     #{p.name}" %></li>
+      <li><%= "     #{p.email}" %></li>
+    
     </ul>
+    <% end %>
   </div>
 </div>
