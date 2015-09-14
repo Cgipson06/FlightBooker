@@ -40,7 +40,7 @@ end
 
 group :production do
   gem 'pg',             '0.17.1'
-end
+
   
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
