@@ -1,28 +1,10 @@
-== README
+== FlightBooker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+This app is my student solution for www.theodinproject.com
+A basic app demonstrating the normal flow for searching and 
+booking airline flights. 
+Demonstrates use of 
+* Action Mailer (with letteropener gem to intercept emails in development mode
+* Bootstrap for some styling
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.

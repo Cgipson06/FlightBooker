@@ -12,7 +12,8 @@ $gray-medium-light: #eaeaea;
 
 body {
   padding-top: 60px;
-  background-color: #DADFE4;
+  background-image: url("skin.jpg");
+  font-family: 'Titillium Web', sans-serif;
 }
 
 section {
@@ -78,3 +79,34 @@ background-color: #f0d8df;
 border-color: #000000;
 color: #4C0000;
 }
+.multi-fade {
+  background: rgba(76,76,76,1);
+background: -webkit-linear-gradient(90deg, #232526 10%, #414345 90%); /* Chrome 10+, Saf5.1+ */
+  background:    -moz-linear-gradient(90deg, #232526 10%, #414345 90%); /* FF3.6+ */
+  background:     -ms-linear-gradient(90deg, #232526 10%, #414345 90%); /* IE10 */
+  background:      -o-linear-gradient(90deg, #232526 10%, #414345 90%); /* Opera 11.10+ */
+  background:         linear-gradient(90deg, #232526 10%, #414345 90%); /* W3C */
+        
+    border: 1px solid black;
+    border-radius: 2px 3px 3px;
+    color: white;
+}
+
+
+
+.flight-table {
+  border: 2px solid black;
+  border-radius: 2px 3px 3px 0px;
+
+
+}
+.panel-heading h2{
+  margin: 2px;
+  }
+  
+.flight-detail {
+margin-left: 10px;
+}
+
+  
+    
