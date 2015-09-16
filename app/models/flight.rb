@@ -3,7 +3,9 @@ class Flight < ActiveRecord::Base
   belongs_to :to_airport, class_name: "Airport"
   has_many :bookings
   has_many :passengers, :through => :bookings
-
+  validates :to_airport, presence: true
+  validates :from_airport, presence: true
+  
   
   def flight_date_formatted
     departure_time.strftime("%d/%m/%Y")
