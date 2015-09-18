@@ -32,14 +32,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-group :development, :test do
-
-  gem 'sqlite3'
-
-end
+gem 'pg'
 
 group :production do
-  gem 'pg',             '0.17.1'
+
   gem 'rails_12factor'
   
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

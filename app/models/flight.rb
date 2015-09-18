@@ -13,7 +13,7 @@ class Flight < ActiveRecord::Base
   
   def self.search(terms)
     if terms[:flight_date]
-      Flight.where('to_airport_id LIKE ? AND from_airport_id LIKE ? AND departure_time BETWEEN ? AND ?', "#{terms[:to_airport_id]}", "#{terms[:from_airport_id]}", "#{terms[:flight_date].to_time.beginning_of_day}","#{terms[:flight_date].to_time.end_of_day}")
+      Flight.where('cast(to_airport_id as text) LIKE ? AND cast(from_airport_id as text) LIKE ? AND cast(departure_time as text) BETWEEN ? AND ?', "#{terms[:to_airport_id]}", "#{terms[:from_airport_id]}", "#{terms[:flight_date].to_time.beginning_of_day}","#{terms[:flight_date].to_time.end_of_day}")
     else
       Flight.all
     end
