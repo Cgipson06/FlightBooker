@@ -7,4 +7,6 @@ Demonstrates use of
 * Action Mailer (with letteropener gem to intercept emails in development mode
 * Bootstrap for some styling
 
+See this app deployed at https://arcane-shore-4106.herokuapp.com/
+
 
