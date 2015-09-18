@@ -15,7 +15,7 @@ def create
     flash[:success] = "Your flight has been booked!"
     @booking.passengers.each do |p|
     
-      PassengerMailer.thank_you_email(p).deliver_later
+     # PassengerMailer.thank_you_email(p).deliver_later
     end
     redirect_to booking_path(@booking)
   else
