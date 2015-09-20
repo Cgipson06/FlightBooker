@@ -7,7 +7,7 @@
 <% end %>
 
 
-
+<div class="search-bar">
 <%= form_tag(flight_index_path, method: "get") do %>
   <%= label_tag(:from_airport_id, "Departure Airport:") %>
   <%= select_tag(:from_airport_id, options_for_select(@airports, @from_airport)) %>
@@ -23,6 +23,7 @@
   
   <%= submit_tag("Search Flights", :name => nil) %>
 <% end %>
+</div>
 
 <% unless params[:passengers].nil? %>
 <div class="jumbotron jumbotron-inverse flight-table ">

@@ -4,10 +4,12 @@
     <h2>Booking Information</h2>
   </div>
 <div class="panel-body">
+  <h2><%= "#{@flight.from_airport.airport_code} => #{@flight.to_airport.airport_code}" %></h2>
+  
   <p><%= "Flight # #{params[:flight_id]} " %></p>
-  <p><%= "Departing from #{@flight.to_airport.airport_code}" %></p>
+  <p><%= "Departing from #{@flight.from_airport.airport_code}" %></p>
   <p>on <%= "#{@flight.departure_time.strftime("%B #{@flight.departure_time.day.ordinalize}, %Y")}" %> </p>
-  <p><%= "Arriving at #{@flight.from_airport.airport_code}" %></p>
+  <p><%= "Arriving at #{@flight.to_airport.airport_code}" %></p>
   <p><%= "Estimated flight time of #{@flight.duration} minutes" %></p>
 </div>
 </div>
